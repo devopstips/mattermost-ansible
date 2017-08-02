@@ -58,3 +58,4 @@
   command: /opt/letsencrypt/letsencrypt-auto certonly -c /opt/letsencrypt/cli.ini --agree-tos
   args:
     creates: /etc/letsencrypt/live/{{ ansible_fqdn }}/fullchain.pem
+  ignore_errors: yes
