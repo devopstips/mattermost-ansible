@@ -61,7 +61,7 @@ point where you can edit the relevant settings from within the web browser.
 * Create a `hosts` file in the project directory. It only needs to contain one line, which is the IP address of the server
 you wish to install Mattermost on.
 
-* Run `ansible-playbook play.yml -i hosts` from the top of level of the project directory.
+* Run `ansible-playbook play.yml -i hosts -u root --ask-pass` from the top of level of the project directory.
 
 
 
