@@ -4,7 +4,7 @@
 - hosts: all
   remote_user: root
   vars:
-    mattermost_version: 4.0.1
+    mattermost_version: 4.0.2
 
    # The user the mattermost process will run as. The group will match.
     mattermost_user: mattermost
@@ -18,7 +18,7 @@
     db_password: notReallyPassword
 
    # This is the email address you want to be attached to the letsencrypt certificate. It should be valid.
-    cert_email_address: abc@123.com
+    cert_email_address: chat@igomobilemarketing.com
 
   roles:
     - common
