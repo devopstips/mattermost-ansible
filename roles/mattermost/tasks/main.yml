@@ -1,20 +1,20 @@
 ---
 - name: Download binary from MatterMost website
   get_url: 
-    url: https://releases.mattermost.com/{{ mattermost_version }}/mattermost-team-{{ mattermost_version }}-linux-amd64.tar.gz
+    url: https://releases.mattermost.com/{{ mattermost_version }}/mattermost-{{ mattermost_version }}-linux-amd64.tar.gz
     dest: /tmp/
   when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16") or (ansible_distribution == "Debian" and ansible_distribution_major_version == "8")
 
 - name: Download binary from MatterMost website (using wget because get_url fails if system python is older than 2.7.5)
-  command: "wget https://releases.mattermost.com/{{ mattermost_version }}/mattermost-team-{{ mattermost_version }}-linux-amd64.tar.gz"
+  command: "wget https://releases.mattermost.com/{{ mattermost_version }}/mattermost-{{ mattermost_version }}-linux-amd64.tar.gz"
   args:        
     chdir: /tmp/
-    creates: /tmp/mattermost-team-{{ mattermost_version }}-linux-amd64.tar.gz
+    creates: /tmp/mattermost-{{ mattermost_version }}-linux-amd64.tar.gz
   when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "6") or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14")
 
 - name: unpack mattermost archive
   unarchive: 
-    src: /tmp/mattermost-team-{{ mattermost_version }}-linux-amd64.tar.gz 
+    src: /tmp/mattermost-{{ mattermost_version }}-linux-amd64.tar.gz 
     dest: /opt/
     copy: no
   args:
